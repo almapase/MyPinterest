@@ -8,8 +8,8 @@
         <div class="thumbnail">
           <%= image_tag(pin.photo) %>
           <div class="caption">
-            <h3><%= pin.description %></h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint nam, repudiandae praesentium veniam corrupti minima iure nisi.</p>
+            <h3><%= pin.name %></h3>
+            <p><%= pin.description %></p>
             <p>
               <%= link_to 'Show', pin, :class => 'btn btn-default btn-sm' %>
               <%= link_to 'Edit', edit_pin_path(pin), :class => 'btn btn-default btn-sm' %>
@@ -18,7 +18,7 @@
           </div>
         </div>
       </div>
-    
+     
     <% end %>
   </div>
   <br>
