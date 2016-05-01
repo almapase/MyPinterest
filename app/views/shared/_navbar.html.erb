@@ -16,6 +16,7 @@
       <ul class="nav navbar-nav">
         <li><a href="#">Nosotros <span class="sr-only">(current)</span></a></li>
         <li><a href="<%= pins_path %>">Pins</a></li>
+        <li><a href="<%= mypins_path %>">My Pins</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -31,17 +32,12 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
+        <% if current_user.nil? %> 
+          <li><a href="<%= new_user_session_path %>"> Ingreso </a></li>
+          <li><a href="<%= new_user_registration_path %>"> Registro </a></li>
+        <% else %>
+          <li><a href="<%= destroy_user_session_path %>" data-method="delete"> Salir </a></li>
+        <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

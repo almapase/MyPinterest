@@ -18,6 +18,9 @@
 <body>
   <%= render 'shared/navbar' %>
   <div class="container">
+    <!-- class notice y alert son de Devise -->
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </div>
 

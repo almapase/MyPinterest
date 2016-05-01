@@ -1,0 +1,20 @@
+<div class="row">
+  <% @pins.each do |pin| %>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <%= image_tag(pin.photo) %>
+        <div class="caption">
+          <h3><%= pin.name %></h3>
+          <p><%= pin.description %></p>
+          <p>
+            <%= link_to 'Show', pin, :class => 'btn btn-default btn-sm' %>
+            <% if user_signed_in? %>
+              <%= link_to 'Edit', edit_pin_path(pin), :class => 'btn btn-default btn-sm' %>
+              <%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-default btn-sm' %>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
